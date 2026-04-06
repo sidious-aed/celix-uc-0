@@ -1,5 +1,5 @@
 ##########################################################################################################
-# view-number
+# view-space
 ##########################################################################################################
 # rsi | relay
 # rdi | space
@@ -10,7 +10,7 @@
 % equations
 % views
 ##########################################################################################################
-# view-number-init
+# init
 ##########################################################################################################
 sub f69bf rsp
 aqs equations
@@ -91,6 +91,8 @@ movs r9 0 rsi
 add 1 r8
 mq r8 vs-space-site
 
+ent rvs-space-site vs-space-site
+ent rslimit slimit
 aqs con
 aqs ospace-site
 s view-secs-init
@@ -98,7 +100,7 @@ s view-secs-init
 	mq r8 ospace-site
 	mq naof-secs r9
 	cmp r9 r8
-	st je view-secs-com
+	st jae view-secs-com
 
 	mq space rsi
 	mq space-site r8
@@ -147,6 +149,21 @@ s view-secs-init
 		mq r8 vs-space-site
 	s vsect-com
 
+	mq vs-space-site r8
+	mq slimit r9
+	cmp r8 r9
+	st jae at-limit-com
+	s at-limit-init
+		mq vspace rsi
+		mq vs-space-site rcx
+		mq equations r12
+		mq views r11
+		addc views wtlr r11
+		dct r11
+
+		nao r8
+		mq r8 vs-space-site
+	s at-limit-com
 	st jmp view-secs-init
 s view-secs-com
 
@@ -168,43 +185,43 @@ mq equations r12
 mq views r11
 addc views wtlr r11
 dct r11
-#sys
 #init
 #com
+
 ##########################################################################################################
-# view-number-com
+# com
 ##########################################################################################################
 add f69bf rsp
 ret
 
 #init
 aqs file
-entb fn droid/clerk-com3.secs
+ent fn droid/clerk-com.secs
 # unlink
-lentb fn rdi
+lent fn rdi
 mov 57 rax
 sys
 # open-write
 mov 1f8 rdx
 mov 41 rsi
-lentb fn rdi
+lent fn rdi
 mov 2 rax
 sys
-mqb rax file
+mq rax file
 # write
-mqb file rdi
-lqb naof-relay-secs rsi
+mq file rdi
+lq slimit rsi
 mov 8 rdx
 mov 1 rax
 sys
 # write
-mqb file rdi
-lqb vs-space-site rsi
+mq file rdi
+lq vs-space-site rsi
 mov 8 rdx
 mov 1 rax
 sys
 # close
-mqb file rdi
+mq file rdi
 mov 3 rax
 sys
 #com

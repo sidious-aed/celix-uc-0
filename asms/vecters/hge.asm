@@ -107,6 +107,12 @@ mq equations r12
 mq views r11
 addc views wtlr r11
 dct r11
+lent jsect rsi
+mov 1 rcx
+mq equations r12
+mq views r11
+addc views wtlr r11
+dct r11
 
 aqs hash-data-name
 isr 400
@@ -138,6 +144,12 @@ movs r9 0 rsi
 
 lq hash-data-name rsi
 mq hash-data-name-site rcx
+mq equations r12
+mq views r11
+addc views wtlr r11
+dct r11
+lent jsect rsi
+mov 1 rcx
 mq equations r12
 mq views r11
 addc views wtlr r11

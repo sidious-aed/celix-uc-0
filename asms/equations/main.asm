@@ -43,7 +43,7 @@ mov 1 rcx
 mq equations r12
 mq views r11
 addc views wtlr r11
-#dct r11
+dct r11
 
 ##########################################################################################################
 # com
@@ -96,7 +96,7 @@ mov 1 rcx
 mq equations r12
 mq views r11
 addc views wtlr r11
-#dct r11
+dct r11
 
 ##########################################################################################################
 # entre-to-number
@@ -197,7 +197,7 @@ mov 1 rcx
 mq equations r12
 mq views r11
 addc views wtlr r11
-#dct r11
+dct r11
 
 mq naof-russian-breadth-secs rdi
 mq views rdi
@@ -228,7 +228,7 @@ mov 1 rcx
 mq equations r12
 mq views r11
 addc views wtlr r11
-#dct r11
+dct r11
 
 ##########################################################################################################
 # view-number
@@ -291,6 +291,61 @@ lent rspace rsi
 lq space0 rdi
 mov 20 rcx
 mov 24 rbx
+nao r10
+mq equations rdx
+mq views r12
+mq vecters r11
+addc vecters view-space r11
+dct r11
+
+lent jsect rsi
+mov 1 rcx
+mq equations r12
+mq views r11
+addc views wtlr r11
+dct r11
+
+##########################################################################################################
+# view-wide-space
+##########################################################################################################
+ent file-name bin/libc.so.6
+aqs file
+# open-read
+nao rsi
+lent file-name rdi
+mov 2 rax
+sys
+mq rax file
+aqs file-site
+# lseek
+mq file rdi
+nao rsi
+mov 2 rdx
+mov 8 rax
+sys
+mq rax file-site
+aqs libc-so-6-site
+# file-mmap
+nao rdi
+mq file-site rsi
+mov 7 rdx
+mov 2 r10
+mq file r8
+nao r9
+mov 9 rax
+sys
+mq rax libc-so-6-site
+# close
+mq file rdi
+mov 3 rax
+sys
+
+ent nlibc-so-6 libc-so-6
+lent nlibc-so-6 rsi
+mq libc-so-6-site rdi
+mq file-site rcx
+mov 24 rbx
+mov a rbx
 nao r10
 mq equations rdx
 mq views r12
@@ -608,7 +663,6 @@ mq equations rdx
 mq views r11
 addc views wtlrfvn r11
 dct r11
-#init
 #com
 ##########################################################################################################
 # com

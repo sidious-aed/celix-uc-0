@@ -69,12 +69,12 @@ dct r8
 mq vn-entree-site r8
 add rax r8
 mq r8 vn-entree-site
-#lq vn-entree rsi
-#add r8 rsi
-#mov a r9
-#movs r9 0 rsi
-#add 1 r8
-#mq r8 vn-entree-site
+lq vn-entree rsi
+add r8 rsi
+mov a r9
+movs r9 0 rsi
+add 1 r8
+mq r8 vn-entree-site
 #init
 #com
 ##########################################################################################################

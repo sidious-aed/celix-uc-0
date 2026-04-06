@@ -111,6 +111,24 @@ let index = function(vecter, seek) {
 	return undefined;
 }
 
+/*
+let string_to_secs = function(string) {
+	const secse = new GLib.Bytes(string);
+	let secs = new Uint8Array(secse.get_data());
+	return secs;
+}
+*/
+		/*
+			<--> * soot child ... never ash ... always soot. - the malitia princess
+		*/
+/*
+let string0 = "\"abc\nabc\n\"";
+let seek_site = seek_string("\n", string0);
+log("seek-site | " + seek_site);
+string0 = "\"abc\"";
+log("gsub | " + gsub("\"", "\\\"", string0));
+*/
+
 let string_to_secs = function(string) {
 	let secs = [];
 	let naof_secs = string.length;
@@ -121,39 +139,29 @@ let string_to_secs = function(string) {
 		}
 		let sec = string[site]
 		site += 1;
-		let i = index(nzeta, sec);
-		if(i != undefined) {
+		let i = nzeta.indexOf(sec);
+		if(i != -1) {
 			secs.push(48 + i);
 			continue;
 		}
-		i = index(lzeta, sec);
-		if(i != undefined) {
+		i = lzeta.indexOf(sec);
+		if(i != -1) {
 			secs.push(97 + i)
 			continue;
 		}
-		i = index(uzeta, sec);
-		if(i != undefined) {
+		i = uzeta.indexOf(sec);
+		if(i != -1) {
 			secs.push(65 + i);
 			continue;
 		}
-		i = index(szeta, sec);
-		if(i != undefined) {
+		i = szeta.indexOf(sec);
+		if(i != -1) {
 			secs.push(szeta_secs[i]);
 			continue;
 		}
-		/*
-		*/
 	}
 	return secs;
 }
-
-/*
-let string0 = "\"abc\nabc\n\"";
-let seek_site = seek_string("\n", string0);
-log("seek-site | " + seek_site);
-string0 = "\"abc\"";
-log("gsub | " + gsub("\"", "\\\"", string0));
-*/
 
 let type_staved_clerkesses = {
 	init: function(naof_pad_entrees, window, webv) {
@@ -238,9 +246,9 @@ let type_staved_clerkesses = {
 							log("str0 | " + str0);
 							log("str0 | " + string_to_secs(str0));
 							//let seek_site0 = seek_string("\n", str0);
-							let seek_site0 = index(str0, 10);
+							let seek_site0 = str0.indexOf(10);
 							//log("seek-site0 | " + seek_site0);
-							if(seek_site0 != undefined) {
+							if(seek_site0 != -1) {
 								let slstr = str0.slice(0, seek_site0);
 								//log("slstr | " + slstr);
 								sjs += "tsc_s0 = \"[" + slstr + "]\";";

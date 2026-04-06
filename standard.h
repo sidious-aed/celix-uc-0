@@ -141,7 +141,8 @@ typedef short * dyno_reference;
 #define archive_read 0
 #define archive_write 1
 #define archive_read_write 2
-#define archive_append 0x1000
+//#define archive_append 0x1000
+#define archive_append 1024
 #define archive_create 0x40
 #define archive_arws 511
 #define archive_droid 504 // for close projects
