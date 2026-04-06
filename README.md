@@ -8,8 +8,8 @@
 * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *
-* gcc basis suite
-* ---------------
+* gcc/unix basis suite
+* --------------------
 *	- libraries
 *		- low wide memory
 *   - low wide data-structuring
@@ -23,6 +23,14 @@
 *		- module systems and named mappings
 *	- equations
 *		- com, number-to-entree, entree-to-number
+*
+* ecollogy console basis suite
+* ----------------------------
+* - term0
+* 	- exchanges
+*			- printing <--> discovered dirictives and our procedures combo of * whm fast
+*			- params parsing and binary staying
+*			- funner jypsy simple sound play try and archives statis discovery
 * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *
 *                     rememberence is relearn remember.
